@@ -455,6 +455,14 @@ module.exports =
       command: "bash"
       args: (context) -> ['-c', "rustc '#{context.filepath}' -o /tmp/rs.out && /tmp/rs.out"]
 
+  Rvec:
+    "Selection Based":
+      command: "rvec"
+      args: (context)  -> ['127.0.0.1', '2100', 'exec', context.getCode()]
+    "File Based":
+      command: "rvec"
+      args: (context) -> ['127.0.0.1', '2100', 'exec_file', context.filepath]
+
   Makefile:
     "Selection Based":
       command: "bash"
